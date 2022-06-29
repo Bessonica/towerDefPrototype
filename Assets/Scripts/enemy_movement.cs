@@ -56,14 +56,23 @@ public class enemy_movement : MonoBehaviour
     }
 
     //when reached target move to neext one
+    // handle change of path, pathA finished
     private void GetNextWayPoint()
     {
+        // so if we have reached the end then do...
         if(wavepointIndex >= waypoints.points.Length - 1)
         {
-            Destroy(gameObject);
+            EndPath();
             return;
         }
         wavepointIndex++;
         target = waypoints.points[wavepointIndex];
+    }
+
+    void EndPath()
+    {
+        PlayerStats.HealthPoints--;
+        UnityEngine.Debug.Log("Your lives now are " + PlayerStats.HealthPoints.ToString());
+        Destroy(gameObject);
     }
 }

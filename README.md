@@ -9,6 +9,8 @@ in folder Assets/Scripts you can find programming part of the project
 - **TurretBl.cs** (turret blueprint) setup your turret. its model and cost. 
 - **BuildManager.cs** takes this blueprint and places it on map, when player presses on one of white squares (**Node.cs**))
 - **PlayerStats.cs** setUps players money and now lets us address player in future. 
+- **GamePlayManager.cs** Player has HP variable that goes down, when enemies finish their path
+
 
 ### next: 
 - add loose/win scenario(five enemies reach you-you dead / survive 3 minutes)

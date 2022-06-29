@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+    public static int HealthPoints;
+    public int startHealthPoints = 10;
 
     public static int Money;
     public int startMoney = 400;
@@ -11,6 +13,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         Money = startMoney;
+        HealthPoints = startHealthPoints;
         
     }
 

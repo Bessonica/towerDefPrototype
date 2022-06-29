@@ -36,7 +36,7 @@ public class Node : MonoBehaviour
     void OnMouseDown()
     {
 
-        if(!buildManager.CanBuild == null)
+        if(!buildManager.CanBuild)
         {
             return;
         }
