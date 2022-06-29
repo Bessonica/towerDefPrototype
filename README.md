@@ -4,6 +4,8 @@ in folder Assets/Scripts you can find programming part of the project
 - enemies can spawn in specified time perioud(every five seconds, or four etc)(wave_spawner.cs)
 - enemies move by folowing waypoints, that are placed by developers(waypoints.cs)
 
+- unfinished shop: you can choose turret and place it, but there is no currancy at the moment
+ 
 ### next: 
 - add loose/win scenario(five enemies reach you-you dead / survive 3 minutes)
 - add player controler component and computer to interact with tower defence portion of prototype

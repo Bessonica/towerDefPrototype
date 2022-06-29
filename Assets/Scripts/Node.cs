@@ -13,15 +13,25 @@ public class Node : MonoBehaviour
 
     private Color startColor;
 
+    BuildManager buildManager;
+
     void Start()
     {
         // here we get Mesh Renderer component of our object
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
+
+        buildManager = BuildManager.instance;
     }
 
     void OnMouseDown()
     {
+
+        if(buildManager.GetTurretToBuild() == null)
+        {
+            return;
+        }
+
 
         // if turret exists
         if(turret != null)
@@ -31,13 +41,19 @@ public class Node : MonoBehaviour
         }
 
         //if turret doesnt exist, place it
-        GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
+        GameObject turretToBuild = buildManager.GetTurretToBuild();
         turret = (GameObject)Instantiate(turretToBuild, transform.position, transform.rotation);
     }
 
     // method for every time you hover over object
     void OnMouseEnter()
     {
+     
+        if(buildManager.GetTurretToBuild() == null)
+        {
+            return;
+        }
+     
         rend.material.color = hoverColor;
  
     }
