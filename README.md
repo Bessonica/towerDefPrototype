@@ -10,4 +10,4 @@ in folder Assets/Scripts you can find programming part of the project
 
 
 example:
-![alt text](https://github.com/Bessonica/towerDefPrototype/tree/master/Assets/ImagesGit/example.PNG)
+![alt text](https://github.com/Bessonica/towerDefPrototype/blob/master/Assets/ImagesGit/example.PNG)
