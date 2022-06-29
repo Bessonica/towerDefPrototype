@@ -15,20 +15,32 @@ public class BuildManager : MonoBehaviour
     //reference to turret object
     public GameObject standartTurretPrefab;
     
-    // void Start()
-    // {
-    //     turretToBuild = standartTurretPrefab;
-    // }
+    private TurretBlueprint turretToBuild;
 
-    private GameObject turretToBuild;
+    public bool CanBuild { get { return turretToBuild != null; } }
 
-    public GameObject GetTurretToBuild()
+    //when in node you on mouse press, you send node to this function
+    // which places turret on its place
+    public void BuildTurretOn(Node node)
     {
-        return turretToBuild;
+        // check money
+        if(PlayerStats.Money < turretToBuild.cost)
+        {
+            UnityEngine.Debug.Log("no money !");
+            return;
+        }
+
+        PlayerStats.Money -= turretToBuild.cost;
+        UnityEngine.Debug.Log("money" + PlayerStats.Money);
+
+
+        GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(), Quaternion.identity);
+        node.turret = turret;
     }
- 
-    // now we can assign turret for any new turret in future
-    public void SetTurretToBuild(GameObject turret)
+
+
+
+    public void SetTurretToBuild(TurretBlueprint turret)
     {
         turretToBuild = turret;
     }

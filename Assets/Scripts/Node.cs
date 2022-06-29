@@ -5,7 +5,11 @@ using UnityEngine;
 public class Node : MonoBehaviour
 {
 
-    private GameObject turret;
+
+    public Vector3 positionOffset;
+
+    [Header("its when you want pre setup turrets for level")]
+    public GameObject turret;
 
 
     public Color hoverColor;
@@ -24,10 +28,15 @@ public class Node : MonoBehaviour
         buildManager = BuildManager.instance;
     }
 
+    public Vector3 GetBuildPosition()
+    {
+        return transform.position + positionOffset;
+    }
+
     void OnMouseDown()
     {
 
-        if(buildManager.GetTurretToBuild() == null)
+        if(!buildManager.CanBuild == null)
         {
             return;
         }
@@ -40,16 +49,16 @@ public class Node : MonoBehaviour
             return;
         }
 
-        //if turret doesnt exist, place it
-        GameObject turretToBuild = buildManager.GetTurretToBuild();
-        turret = (GameObject)Instantiate(turretToBuild, transform.position, transform.rotation);
+        buildManager.BuildTurretOn(this);
+
+
     }
 
     // method for every time you hover over object
     void OnMouseEnter()
     {
      
-        if(buildManager.GetTurretToBuild() == null)
+        if(!buildManager.CanBuild)
         {
             return;
         }
